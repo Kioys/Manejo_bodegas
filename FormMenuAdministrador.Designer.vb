@@ -22,9 +22,29 @@ Partial Class FormMenuAdministrador
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.SuspendLayout()
+        '
+        'btnVolver
+        '
+        Me.btnVolver.Location = New System.Drawing.Point(471, 351)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(75, 23)
+        Me.btnVolver.TabIndex = 1
+        Me.btnVolver.Text = "Volver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'FormMenuAdministrador
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(558, 386)
+        Me.Controls.Add(Me.btnVolver)
+        Me.Name = "FormMenuAdministrador"
         Me.Text = "FormMenuAdministrador"
+        Me.ResumeLayout(False)
+
     End Sub
+
+    Friend WithEvents btnVolver As Button
 End Class

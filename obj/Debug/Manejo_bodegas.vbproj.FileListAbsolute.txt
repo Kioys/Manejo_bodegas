@@ -1,0 +1,15 @@
+C:\Users\PC\source\repos\Manejo_bodegas\bin\Debug\Manejo_bodegas.exe.config
+C:\Users\PC\source\repos\Manejo_bodegas\bin\Debug\Manejo_bodegas.exe
+C:\Users\PC\source\repos\Manejo_bodegas\bin\Debug\Manejo_bodegas.pdb
+C:\Users\PC\source\repos\Manejo_bodegas\bin\Debug\Manejo_bodegas.xml
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.vbprojAssemblyReference.cache
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.FormMenuAdministrador.resources
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.FormMenuPrincipal.resources
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.Resources.resources
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.vbproj.GenerateResource.cache
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.vbproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.exe
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.xml
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.pdb
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.FormIngreso.resources
+C:\Users\PC\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.FormVenta.resources

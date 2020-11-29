@@ -22,9 +22,31 @@ Partial Class FormIngreso
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.btnVolver = New System.Windows.Forms.Button()
+        Me.SuspendLayout()
+        '
+        'btnVolver
+        '
+        Me.btnVolver.Location = New System.Drawing.Point(560, 355)
+        Me.btnVolver.Name = "btnVolver"
+        Me.btnVolver.Size = New System.Drawing.Size(75, 23)
+        Me.btnVolver.TabIndex = 0
+        Me.btnVolver.Text = "Volver"
+        Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'FormIngreso
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Text = "FormIngreso"
+        Me.ClientSize = New System.Drawing.Size(647, 390)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.btnVolver)
+        Me.Name = "FormIngreso"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Ingreso de productos a la bodega"
+        Me.ResumeLayout(False)
+
     End Sub
+
+    Friend WithEvents btnVolver As Button
 End Class
