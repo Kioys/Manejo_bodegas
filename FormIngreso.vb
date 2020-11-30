@@ -1,9 +1,11 @@
 ﻿Imports System.Security.Cryptography
+Imports MySql.Data.MySqlClient
 
 Public Class FormIngreso
 
     Dim frmMenuPrincipal As FormMenuPrincipal
     Dim proveedores As New Dictionary(Of Integer, String)
+    Dim reader As MySqlDataReader
     Dim conexion As Conexion
 
     Public Sub New(menuForm As FormMenuPrincipal)
@@ -14,7 +16,25 @@ Public Class FormIngreso
 
         conexion = New Conexion("127.0.0.1", "root", "", "dbbodega")
 
-        proveedores = conexion.getProveedores()
+        If conexion.getConexion().State.Equals(ConnectionState.Closed) Then
+
+            conexion.getConexion().Open()
+
+        End If
+
+        reader = conexion.enviarConsulta("SELECT * FROM proveedor").ExecuteReader()
+
+        If reader.HasRows Then
+
+            Do While reader.Read()
+
+                proveedores.Add(reader.GetInt32(0), reader.GetString(1))
+
+            Loop
+
+        End If
+
+        reader.Close()
 
         For Each kvp As KeyValuePair(Of Integer, String) In proveedores
 

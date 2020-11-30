@@ -85,47 +85,11 @@ Public Class Conexion
 
     End Function
 
-    Public Function getProveedores() As Dictionary(Of Integer, String)
+    Public Function enviarConsulta(sql As String) As MySqlCommand
 
-        Try
+        Dim comando As MySqlCommand = New MySqlCommand(sql, conexion)
 
-            Using conexion
-
-                If conexion.State.Equals(ConnectionState.Closed) Then
-
-                    conexion.Open()
-
-                End If
-
-                Dim proveedores As Dictionary(Of Integer, String) = New Dictionary(Of Integer, String)
-
-                Dim comando As MySqlCommand = New MySqlCommand("SELECT * FROM proveedor", conexion)
-
-                Dim reader As MySqlDataReader = comando.ExecuteReader()
-
-                If reader.HasRows Then
-
-                    Do While reader.Read()
-
-                        proveedores.Add(reader.GetInt32(0), reader.GetString(1))
-
-                    Loop
-
-                End If
-
-                reader.Close()
-
-                Return proveedores
-
-            End Using
-
-        Catch ex As MySqlException
-
-            MsgBox("Error de lectura " & ex.ToString())
-
-        End Try
-
-        Return New Dictionary(Of Integer, String)
+        Return comando
 
     End Function
 
@@ -148,6 +112,13 @@ Public Class Conexion
         End Try
 
     End Sub
+
+    Public Function getConexion() As MySqlConnection
+
+        Return conexion
+
+    End Function
+
 
 
 End Class
