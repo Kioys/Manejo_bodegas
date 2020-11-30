@@ -10,7 +10,7 @@
 
     End Sub
 
-    Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+    Private Sub btnVolver_Click(sender As Object, e As EventArgs) 
 
         frmMenuPrincipal.Show()
         Me.Hide()
