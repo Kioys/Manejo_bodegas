@@ -90,6 +90,7 @@ Partial Class FormMenuPrincipal
         Me.ClientSize = New System.Drawing.Size(406, 294)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FormMenuPrincipal"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu principal"
         Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)

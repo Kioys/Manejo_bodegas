@@ -15,35 +15,7 @@ Public Class FormMenuAdministrador
 
         Me.frmMenuPrincipal = menuForm
 
-        Conexion = New Conexion("127.0.0.1", "root", "", "dbbodega")
-
-        If Conexion.getConexion().State.Equals(ConnectionState.Closed) Then
-
-            Conexion.getConexion().Open()
-
-        End If
-
-        reader = conexion.enviarConsulta("SELECT * FROM productos").ExecuteReader()
-
-        If reader.HasRows Then
-
-            Do While reader.Read()
-
-                productos.Add(reader.GetInt32(0), reader.GetString(1))
-
-            Loop
-
-        End If
-
-        reader.Close()
-
-        For Each kvp As KeyValuePair(Of Integer, String) In productos
-
-            comboProductos.Items.Add(kvp.Value)
-
-        Next
-
-        comboProductos.SelectedIndex = 0
+        conexion = New Conexion("127.0.0.1", "root", "", "dbbodega")
 
     End Sub
 
@@ -64,7 +36,7 @@ Public Class FormMenuAdministrador
         con.Open()
 
 
-        ada = New MySqlDataAdapter("SELECT iddetalleFactura as 'ID detalle factura', factura_idfactura as 'ID factura', p.nombreProducto as 'Nombre producto', p.Precio as 'Precio unitario', cantidadProducto as 'Cantidad vendida' from detallefactura join productos as p on productos_idproductos = p.idProductos", con)
+        ada = New MySqlDataAdapter("SELECT iddetalleFactura as 'ID detalle factura', factura_idfactura as 'ID factura', p.nombreProducto as 'Nombre producto', p.Precio as 'Precio unitario', cantidadProducto as 'Cantidad vendida', f.fecha from detallefactura join productos as p on productos_idproductos = p.idProductos join factura as f on Factura_idFactura = f.idFactura", con)
         ada.Fill(ds)
         DataGridView1.DataSource = ds.Tables(0)
     End Sub
@@ -110,5 +82,40 @@ Public Class FormMenuAdministrador
         Else
             MsgBox("No se realizaron cambios.")
         End If
+    End Sub
+
+    Private Sub FormMenuAdministrador_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+
+        If conexion.getConexion().State.Equals(ConnectionState.Closed) Then
+
+            conexion.getConexion().Open()
+
+        End If
+
+        reader = conexion.enviarConsulta("SELECT * FROM productos").ExecuteReader()
+
+        If reader.HasRows Then
+
+            productos.Clear()
+            comboProductos.Items.Clear()
+
+            Do While reader.Read()
+
+                productos.Add(reader.GetInt32(0), reader.GetString(1))
+
+            Loop
+
+        End If
+
+        reader.Close()
+
+        For Each kvp As KeyValuePair(Of Integer, String) In productos
+
+            comboProductos.Items.Add(kvp.Value)
+
+        Next
+
+        comboProductos.SelectedIndex = 0
+
     End Sub
 End Class

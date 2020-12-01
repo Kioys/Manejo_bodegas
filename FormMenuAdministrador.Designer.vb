@@ -33,6 +33,7 @@ Partial Class FormMenuAdministrador
         '
         'btnVolver
         '
+        Me.btnVolver.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.btnVolver.Location = New System.Drawing.Point(588, 559)
         Me.btnVolver.Name = "btnVolver"
         Me.btnVolver.Size = New System.Drawing.Size(75, 23)
@@ -50,6 +51,7 @@ Partial Class FormMenuAdministrador
         '
         'btnVentas
         '
+        Me.btnVentas.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.btnVentas.Location = New System.Drawing.Point(13, 13)
         Me.btnVentas.Name = "btnVentas"
         Me.btnVentas.Size = New System.Drawing.Size(172, 23)
@@ -68,6 +70,7 @@ Partial Class FormMenuAdministrador
         'lblSelect
         '
         Me.lblSelect.AutoSize = True
+        Me.lblSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.lblSelect.Location = New System.Drawing.Point(339, 18)
         Me.lblSelect.Name = "lblSelect"
         Me.lblSelect.Size = New System.Drawing.Size(115, 13)
@@ -76,6 +79,7 @@ Partial Class FormMenuAdministrador
         '
         'btnEliminar
         '
+        Me.btnEliminar.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.btnEliminar.Location = New System.Drawing.Point(587, 15)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
@@ -88,14 +92,17 @@ Partial Class FormMenuAdministrador
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(688, 594)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.lblSelect)
         Me.Controls.Add(Me.comboProductos)
         Me.Controls.Add(Me.btnVentas)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnVolver)
+        Me.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.Name = "FormMenuAdministrador"
-        Me.Text = "FormMenuAdministrador"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Menu de administrador"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

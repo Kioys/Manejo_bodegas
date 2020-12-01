@@ -1,5 +1,4 @@
-﻿Imports System.Security.Cryptography
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Public Class FormIngreso
 
@@ -79,6 +78,11 @@ Public Class FormIngreso
                     Dim comando = String.Format("INSERT INTO productos(idProductos, nombreProducto, Stock, Precio, Proveedor_idProveedor) VALUES({0}, '{1}', {2}, {3}, {4})", idProducto, nombreProducto, stock, precio, idProveedor)
 
                     conexion.enviarComando(comando)
+
+                    txtCodigo.Clear()
+                    txtNombre.Clear()
+                    txtPrecio.Clear()
+                    txtStock.Clear()
 
                 Catch ex As Exception
 
