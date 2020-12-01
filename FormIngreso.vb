@@ -2,19 +2,21 @@
 
 Public Class FormIngreso
 
+    'DECLARACION DE OBJETOS
     Dim frmMenuPrincipal As FormMenuPrincipal
     Dim proveedores As New Dictionary(Of Integer, String)
     Dim reader As MySqlDataReader
     Dim conexion As Conexion
 
     Public Sub New(menuForm As FormMenuPrincipal)
-
+        'INICIALIZAR LOS COMPONENTES CUANDO EL CONSTRUCTOR ES LLAMADO
         InitializeComponent()
-
+        'obtener el form del menu principal por parametro
         Me.frmMenuPrincipal = menuForm
-
+        'instanciar una conexion con parametros correctos
         conexion = New Conexion("127.0.0.1", "root", "", "dbbodega")
-
+        'si la conexion está cerrada que la abra, al hacer la consulta guarde los resultados en un diccionario
+        'luego que lea el diccionario añadiendo cada proveedor al ComboBox
         If conexion.getConexion().State.Equals(ConnectionState.Closed) Then
 
             conexion.getConexion().Open()
@@ -45,6 +47,9 @@ Public Class FormIngreso
 
     End Sub
 
+    'al presionar el boton se leeran los campo de textos verificando que no estén vacios
+    'si no están vacios los leera y comprobará si no hay letras donde deberian haber numeros
+    'si cumple con todos estos requisitos se ejecuta el comando insert con los datos correctos
     Private Sub btnIngresarProducto_Click(sender As Object, e As EventArgs) Handles btnIngresarProducto.Click
 
         Try
@@ -101,6 +106,7 @@ Public Class FormIngreso
 
     End Sub
 
+    'limpia todos los campos
     Private Sub btnLimpiarCampos_Click(sender As Object, e As EventArgs) Handles btnLimpiarCampos.Click
 
         txtCodigo.Clear()
@@ -110,6 +116,7 @@ Public Class FormIngreso
 
     End Sub
 
+    'esconde el form actual y muestra el menu principal
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
 
         frmMenuPrincipal.Show()

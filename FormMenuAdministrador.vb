@@ -3,22 +3,29 @@ Imports MySql.Data.MySqlClient
 
 Public Class FormMenuAdministrador
 
+    'DECLARACION DE VARIABLES Y OBJETOS
     Dim frmMenuPrincipal As FormMenuPrincipal
     Dim productos As New Dictionary(Of Integer, String)
     Dim reader As MySqlDataReader
     Dim conexion As Conexion
     Dim filteredProductos As New Dictionary(Of Integer, String)
+    Dim con As MySqlConnection
+    Dim ada As New MySqlDataAdapter()
+    Dim ds As New DataSet
 
     Public Sub New(menuForm As FormMenuPrincipal)
-
+        'AL INSTANCIAR EL OBJETO SE LLAMA AL CONSTRUCTOR INICIALIZANDO LOS COMPONENTES Y CREANDO LA CONEXION
+        'CON LOS PARAMETROS CORRESPONDIENTES
         InitializeComponent()
 
+        'obtenemos el menu principal desde parametro para luego ser utilizado
         Me.frmMenuPrincipal = menuForm
 
         conexion = New Conexion("127.0.0.1", "root", "", "dbbodega")
 
     End Sub
 
+    'esconde el form actual y muestra el menu principal
     Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
 
         frmMenuPrincipal.Show()
@@ -26,11 +33,8 @@ Public Class FormMenuAdministrador
 
     End Sub
 
+    'al hacer click en ventas se ejecutan las consultas para luego ser mostradas en el DataGridView
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
-        Dim con As MySqlConnection
-
-        Dim ada As New MySqlDataAdapter()
-        Dim ds As New DataSet
 
         con = New MySqlConnection("server=localhost;uid=root;pwd=;database=dbbodega")
         con.Open()
@@ -41,14 +45,13 @@ Public Class FormMenuAdministrador
         DataGridView1.DataSource = ds.Tables(0)
     End Sub
 
+    'al cambiar de producto en el combobox se mandará una query actualizando el DataGridView con datos
+    'del producto seleccionado
     Private Sub comboProductos_SelectedValueChanged(sender As Object, e As EventArgs) Handles comboProductos.SelectedValueChanged
         If (comboProductos.SelectedItem = String.Empty) Then
             Return
         End If
-        Dim con As MySqlConnection
 
-        Dim ada As New MySqlDataAdapter()
-        Dim ds As New DataSet
 
         Dim query = "Select * from productos where nombreProducto ='" & comboProductos.SelectedItem.ToString & "'"
 
@@ -60,14 +63,13 @@ Public Class FormMenuAdministrador
         DataGridView1.DataSource = ds.Tables(0)
     End Sub
 
+    'al darle click al boton eliminar se tomara el producto seleccionado en el combobox para
+    'posteriormente ejecutar el comando correcto, eliminando el producto de la base de datos
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         If (comboProductos.SelectedItem = String.Empty) Then
             Return
         End If
-        Dim con As MySqlConnection
 
-        Dim ada As New MySqlDataAdapter()
-        Dim ds As New DataSet
         Dim query = "Delete from productos where nombreProducto ='" & comboProductos.SelectedItem.ToString & "'"
         Dim resultado = MsgBox("¿Seguro que desea eliminar " & comboProductos.SelectedItem.ToString & " ?", vbYesNo + vbExclamation, "Mensaje especial")
         If (resultado = 6) Then
@@ -84,6 +86,9 @@ Public Class FormMenuAdministrador
         End If
     End Sub
 
+    'Cuando la ventana cambia su estado de visibilidad se leeran los productos de la base de datos
+    'colocandolos de forma ordenada en el combobox, esto mantiene la lista actualizada si se ha agregado un
+    'producto
     Private Sub FormMenuAdministrador_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
 
         If conexion.getConexion().State.Equals(ConnectionState.Closed) Then
