@@ -1,5 +1,5 @@
 # Manejo_bodegas
  
  INTEGRANTES:
-  -Matias Arratibel
-  -Marco parada
+  - Matias Arratibel
+  - Marco parada
