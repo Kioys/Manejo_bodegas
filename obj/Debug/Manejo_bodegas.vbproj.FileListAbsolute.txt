@@ -60,3 +60,33 @@ C:\Users\andre\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.vbproj.CopyC
 C:\Users\andre\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.exe
 C:\Users\andre\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.xml
 C:\Users\andre\source\repos\Manejo_bodegas\obj\Debug\Manejo_bodegas.pdb
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\Manejo_bodegas.exe.config
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\Manejo_bodegas.exe
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\Google.Protobuf.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\Zstandard.Net.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\Renci.SshNet.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\System.Memory.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\System.Buffers.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\MySql.Data.xml
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.vbprojAssemblyReference.cache
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.exe.config
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.FormIngreso.resources
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.FormMenuAdministrador.resources
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.FormMenuPrincipal.resources
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.FormVenta.resources
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.Resources.resources
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.vbproj.GenerateResource.cache
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.vbproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.vbproj.CopyComplete
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.exe
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.xml
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\obj\Debug\Manejo_bodegas.pdb
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\Manejo_bodegas.pdb
+C:\Users\PC\Desktop\EPE 3 .NET\Manejo_bodegas\bin\Debug\Manejo_bodegas.xml

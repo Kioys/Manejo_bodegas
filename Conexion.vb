@@ -56,7 +56,7 @@ Public Class Conexion
 
     End Sub
 
-    Public Function enviarConsultaDataSet(consulta As String) As DataSet
+    Public Function enviarConsultaDataSet(consulta As String, tabla As String) As DataSet
 
         Try
 
@@ -70,7 +70,7 @@ Public Class Conexion
 
                 Dim datos = New DataSet
 
-                adaptador.Fill(datos, "datos")
+                adaptador.Fill(datos, tabla)
 
                 Return datos
 

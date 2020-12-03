@@ -2,7 +2,7 @@
 Public Class FormVenta
 
     'DECLARACION DE VARIABLES Y OBJETOS
-    Dim selectedProductoId, stock, nuevoStock As Integer
+    Dim selectedProductoId, stock, nuevoStock, precioTotal As Integer
     Dim frmMenuPrincipal As FormMenuPrincipal
     Dim conexion As Conexion
     Dim productos As New Dictionary(Of Integer, String)
@@ -28,6 +28,18 @@ Public Class FormVenta
         nuevoStock = stock - numericCantidad.Value
 
         conexion.enviarComando(String.Format("UPDATE productos set stock = {0} where idProductos = {1}; INSERT INTO factura(fecha) values(now()); INSERT INTO detallefactura(factura_idfactura, cantidadProducto, productos_idProductos) values((select idfactura from factura order by idfactura desc LIMIT 1), {2}, {3})", nuevoStock, selectedProductoId, numericCantidad.Value, selectedProductoId))
+
+    End Sub
+
+    Private Sub numericCantidad_ValueChanged(sender As Object, e As EventArgs) Handles numericCantidad.ValueChanged
+
+        If (dataGrid.Rows.Count > 0) Then
+
+            precioTotal = dataGrid.Rows(0).Cells(3).Value * numericCantidad.Value
+
+            lblPrecioTotal.Text = precioTotal.ToString()
+
+        End If
 
     End Sub
 
@@ -93,13 +105,18 @@ Public Class FormVenta
 
         Next
 
-        datos = conexion.enviarConsultaDataSet("Select idProductos as 'ID producto', nombreProducto as 'Nombre producto', stock as 'Stock disponible', precio as 'Precio unidad', p.nombre As 'Nombre proveedor' from productos join proveedor as p on Proveedor_idProveedor = p.idProveedor where idProductos = " & selectedProductoId)
+        datos = conexion.enviarConsultaDataSet("Select idProductos as 'ID producto', nombreProducto as 'Nombre producto', stock as 'Stock disponible', precio as 'Precio unidad', p.nombre As 'Nombre proveedor' from productos join proveedor as p on Proveedor_idProveedor = p.idProveedor where idProductos = " & selectedProductoId, "vender")
 
         dataGrid.DataSource = datos.Tables(0)
 
         stock = dataGrid.Rows(0).Cells(2).Value
 
         numericCantidad.Maximum = stock
+
+
+        precioTotal = dataGrid.Rows(0).Cells(3).Value * numericCantidad.Value
+
+        lblPrecioTotal.Text = precioTotal.ToString()
 
         If stock = 0 Then
 

@@ -10,6 +10,7 @@ Public Class FormMenuAdministrador
     Dim conexion As Conexion
     Dim filteredProductos As New Dictionary(Of Integer, String)
     Dim con As MySqlConnection
+    Dim datos As DataSet
     Dim ada As New MySqlDataAdapter()
     Dim ds As New DataSet
 
@@ -36,13 +37,11 @@ Public Class FormMenuAdministrador
     'al hacer click en ventas se ejecutan las consultas para luego ser mostradas en el DataGridView
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
 
-        con = New MySqlConnection("server=localhost;uid=root;pwd=;database=dbbodega")
-        con.Open()
+        datos = conexion.enviarConsultaDataSet("SELECT iddetalleFactura as 'ID detalle factura', factura_idfactura as 'ID factura', p.nombreProducto as 'Nombre producto', p.Precio as 'Precio unitario', cantidadProducto as 'Cantidad vendida', f.fecha from detallefactura join productos as p on productos_idproductos = p.idProductos join factura as f on Factura_idFactura = f.idFactura", "ventas")
+
+        DataGridView1.DataSource = datos.Tables(0)
 
 
-        ada = New MySqlDataAdapter("SELECT iddetalleFactura as 'ID detalle factura', factura_idfactura as 'ID factura', p.nombreProducto as 'Nombre producto', p.Precio as 'Precio unitario', cantidadProducto as 'Cantidad vendida', f.fecha from detallefactura join productos as p on productos_idproductos = p.idProductos join factura as f on Factura_idFactura = f.idFactura", con)
-        ada.Fill(ds)
-        DataGridView1.DataSource = ds.Tables(0)
     End Sub
 
     'al cambiar de producto en el combobox se mandará una query actualizando el DataGridView con datos
@@ -55,12 +54,10 @@ Public Class FormMenuAdministrador
 
         Dim query = "Select * from productos where nombreProducto ='" & comboProductos.SelectedItem.ToString & "'"
 
-        con = New MySqlConnection("server=localhost;uid=root;pwd=;database=dbbodega")
-        con.Open()
+        datos = conexion.enviarConsultaDataSet(query, "producto")
 
-        ada = New MySqlDataAdapter(query, con)
-        ada.Fill(ds)
-        DataGridView1.DataSource = ds.Tables(0)
+        DataGridView1.DataSource = datos.Tables(0)
+
     End Sub
 
     'al darle click al boton eliminar se tomara el producto seleccionado en el combobox para

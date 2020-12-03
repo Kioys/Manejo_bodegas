@@ -31,6 +31,8 @@ Partial Class FormVenta
         Me.btnVender = New System.Windows.Forms.Button()
         Me.dataGrid = New System.Windows.Forms.DataGridView()
         Me.btnVolver = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblPrecioTotal = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.numericCantidad, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -38,6 +40,8 @@ Partial Class FormVenta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lblPrecioTotal)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -102,9 +106,9 @@ Partial Class FormVenta
         'btnVender
         '
         Me.btnVender.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVender.Location = New System.Drawing.Point(235, 115)
+        Me.btnVender.Location = New System.Drawing.Point(316, 115)
         Me.btnVender.Name = "btnVender"
-        Me.btnVender.Size = New System.Drawing.Size(140, 31)
+        Me.btnVender.Size = New System.Drawing.Size(121, 31)
         Me.btnVender.TabIndex = 1
         Me.btnVender.Text = "Vender"
         Me.btnVender.UseVisualStyleBackColor = True
@@ -126,6 +130,27 @@ Partial Class FormVenta
         Me.btnVolver.TabIndex = 1
         Me.btnVolver.Text = "Volver"
         Me.btnVolver.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(199, 104)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(68, 15)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Precio total"
+        '
+        'lblPrecioTotal
+        '
+        Me.lblPrecioTotal.AutoSize = True
+        Me.lblPrecioTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrecioTotal.Location = New System.Drawing.Point(199, 131)
+        Me.lblPrecioTotal.Name = "lblPrecioTotal"
+        Me.lblPrecioTotal.Size = New System.Drawing.Size(14, 15)
+        Me.lblPrecioTotal.TabIndex = 9
+        Me.lblPrecioTotal.Text = "0"
+        Me.lblPrecioTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'FormVenta
         '
@@ -155,4 +180,6 @@ Partial Class FormVenta
     Friend WithEvents comboProductos As ComboBox
     Friend WithEvents numericCantidad As NumericUpDown
     Friend WithEvents btnVender As Button
+    Friend WithEvents lblPrecioTotal As Label
+    Friend WithEvents Label4 As Label
 End Class
