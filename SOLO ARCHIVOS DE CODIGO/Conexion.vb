@@ -1,5 +1,4 @@
-﻿Imports System.Data.SqlClient
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Public Class Conexion
 
@@ -7,6 +6,7 @@ Public Class Conexion
 
     Dim conexion As MySqlConnection
 
+    'RECIBIMOS LOS PARAMETROS POR CONSTRUCTOR Y CREAMOS LA CONEXION
     Public Sub New(servidor As String, usuario As String, password As String, database As String)
 
         Try
@@ -25,7 +25,7 @@ Public Class Conexion
 
     End Sub
 
-
+    'SE ENVIA UN COMANDO A LA BASE DE DATOS
     Public Sub enviarComando(comandoString As String)
 
         Try
@@ -56,7 +56,8 @@ Public Class Conexion
 
     End Sub
 
-    Public Function enviarConsultaDataSet(consulta As String) As DataSet
+    'HACE UNA CONSULTA A LA BASE DE DATOS DEVOLVIENDO EL RESULTADO EN UN DATASET
+    Public Function enviarConsultaDataSet(consulta As String, tabla As String) As DataSet
 
         Try
 
@@ -70,7 +71,7 @@ Public Class Conexion
 
                 Dim datos = New DataSet
 
-                adaptador.Fill(datos, "datos")
+                adaptador.Fill(datos, tabla)
 
                 Return datos
 
@@ -85,6 +86,7 @@ Public Class Conexion
 
     End Function
 
+    'ENVIA UNA CONSULTA A LA BASE DE DATOS DEVOLVIENDO MYSQLCOMMAND
     Public Function enviarConsulta(sql As String) As MySqlCommand
 
         Dim comando As MySqlCommand = New MySqlCommand(sql, conexion)
@@ -93,6 +95,7 @@ Public Class Conexion
 
     End Function
 
+    'SIRVE PARA CERRAR LA CONEXION CREADA
     Public Sub cerrarConexion()
 
         Try
@@ -113,6 +116,7 @@ Public Class Conexion
 
     End Sub
 
+    'OBTIENE LA CONEXION DE LA INSTANCIA ACTUAL DEL OBJETO
     Public Function getConexion() As MySqlConnection
 
         Return conexion
